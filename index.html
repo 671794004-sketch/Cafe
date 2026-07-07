@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="th" data-theme="light">
 <head>
-    <!-- Google tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=%%VITE_GA_MEASUREMENT_ID%%"></script>
+    <!-- Google tag (gtag.js) - Google Analytics (Smart Mode) -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '%%VITE_GA_MEASUREMENT_ID%%');
+        if (window.location.hostname !== 'localhost' && window.location.protocol !== 'file:') {
+            // Load script dynamically for production only
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-11BWQ76Y0V";
+            document.head.appendChild(gaScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-11BWQ76Y0V');
+        }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
